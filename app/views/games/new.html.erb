@@ -1,0 +1,15 @@
+<h2>New game</h2>
+<ul class="list">
+  <% @letters.each do |letter| %>
+    <li class=letter><%= letter.capitalize %></li>
+  <% end %>
+</ul>
+
+<h3>What's the longest word you can find?</h3>
+  <form action="/score" method="post">
+    <input type="text" name="longestword">
+    <input type="submit" value="Play!">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters %>
+  </form>
+
